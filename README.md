@@ -7,12 +7,12 @@ Powershell script to block unwanted hosts.  The script must be run by a user wit
 
 ## Table of Contents
 
-Introduction
-Features
-How to Use
-Examples
-Contributing
-License
+Introduction<br>
+Features<br>
+How to Use<br>
+Examples<br>
+Contributing<br>
+License<br>
 
 ## Introduction
 
@@ -55,7 +55,7 @@ The script first checks if it's running with administrative rights. It then read
 Here I provide you with examples of varios configurations that can be use.Chose one or everyone by taking the URLs from the .csv
 
 Special thanks to:
-https://github.com/FadeMind/hosts.extras
+https://github.com/FadeMind/hosts.extras <br>
 https://github.com/StevenBlack/hosts
 
  For providing with the scaned URLs lists.
@@ -131,10 +131,10 @@ yoyo.org |[link](https://pgl.yoyo.org/adservers/) | [raw](https://pgl.yoyo.org/a
 
 If you'd like to contribute to the project, feel free to fork the repository, make your changes, and submit a pull request. Any improvements or suggestions are highly appreciated.
 
-1.Fork the project.
-2.Create a new branch.
-3.Make your changes and commit them.
-4.Submit a pull request.
+1.Fork the project.<br>
+2.Create a new branch.<br>
+3.Make your changes and commit them.<br>
+4.Submit a pull request.<br>
 
 ## License
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code.
