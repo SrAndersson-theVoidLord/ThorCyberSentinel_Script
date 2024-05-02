@@ -1,20 +1,64 @@
-# Check if script is running with admin rights
-if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { throw "Run as administrator" }
+# Check if the script is running as administrator
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    throw "Please run this script as an administrator"
+}
 
 # Define the hosts file location
 $hostsFile = "$env:SystemRoot\System32\drivers\etc\hosts"
 
 # Read the current hosts file content
-$hostsContent = Get-Content $hostsFile
+try {
+    $hostsContent = Get-Content $hostsFile -ErrorAction Stop
+    Write-Host "Successfully read the hosts file"
+} catch {
+    Write-Host "Failed to read the hosts file: $_"
+    exit 1
+}
 
 # Count original number of entries
 $initialCount = $hostsContent.Count
 
 # Define unwanted hosts.  Add entries as desired.
 $unwantedHosts = @(
-	"example1.com",
-	"example2.net",
-	"example3.org"
+    "Ucoz.com",
+    "17ebook.co",
+    "sapo.pt",
+    "aladel.net",
+    "bpwhamburgorchardpark.org",
+    "clicnews.com",
+    "Amazonaws.com",
+    "dfwdiesel.net",
+    "divineenterprises.net",
+    "fantasticfilms.ru",
+    "Blogspot.de",
+    "gardensrestaurantandcatering.com",
+    "ginedis.com",
+    "gncr.org",
+    "hdvideoforums.org",
+    "hihanin.com",
+    "kingfamilyphotoalbum.com",
+    "likaraoke.com",
+    "mactep.org",
+    "magic4you.nu",
+    "sendspace.com",
+    "marbling.pe.kr",
+    "nacjalneg.info",
+    "pronline.ru",
+    "purplehoodie.com",
+    "qsng.cn",
+    "comcast.net",
+    "seksburada.net",
+    "sportsmansclub.net",
+    "stock888.cn",
+    "fc2.com",
+    "tathli.com",
+    "teamclouds.com",
+    "texaswhitetailfever.com",
+    "Hotfile.com",
+    "wadefamilytree.org",
+    "xnescat.info",
+    "Mail.Ru",
+    "yt118.com"
 )
 
 # Generate new entries with 127.0.0.1 and tab-separated hostname
@@ -35,12 +79,25 @@ $existingEntries = $hostsContent | ForEach-Object {
 # Add new entries if not already present
 $newEntries | ForEach-Object {
     if ($existingEntries -notcontains $_) {
-        Add-Content $hostsFile $_
+        try {
+            Add-Content $hostsFile $_ -ErrorAction Stop
+            Write-Host "Successfully added entry: $_"
+        } catch {
+            Write-Host "Failed to add entry: $_"
+        }
+    } else {
+        Write-Host "Entry already exists: $_"
     }
 }
 
 # Read the updated hosts file content
-$updatedHostsContent = Get-Content $hostsFile
+try {
+    $updatedHostsContent = Get-Content $hostsFile -ErrorAction Stop
+    Write-Host "Successfully read the updated hosts file"
+} catch {
+    Write-Host "Failed to read the updated hosts file: $_"
+    exit 1
+}
 
 # Remove duplicate entries and convert them, leaving comments untouched
 $uniqueEntries = $updatedHostsContent | Get-Unique -AsString | ForEach-Object {
@@ -53,13 +110,25 @@ $uniqueEntries = $updatedHostsContent | Get-Unique -AsString | ForEach-Object {
 }
 
 # Backup the original hosts file
-Copy-Item $hostsFile "$hostsFile.bak"
+try {
+    Copy-Item $hostsFile "$hostsFile.bak" -ErrorAction Stop
+    Write-Host "Successfully backed up the hosts file"
+} catch {
+    Write-Host "Failed to back up the hosts file: $_"
+    exit 1
+}
 
 # Overwrite the hosts file with unique, tab-separated entries
-Set-Content $hostsFile $uniqueEntries
+try {
+    Set-Content $hostsFile $uniqueEntries -ErrorAction Stop
+    Write-Host "Successfully updated the hosts file"
+} catch {
+    Write-Host "Failed to update the hosts file: $_"
+    exit 1
+}
 
 # Count the final number of entries
-$finalCount = (Get-Content $hostsFile).Count
+$finalCount = $uniqueEntries.Count
 
 # Show the number of entries before and after the script execution
 Write-Host "Initial number of entries: $initialCount"
