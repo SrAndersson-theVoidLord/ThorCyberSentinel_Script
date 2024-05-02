@@ -1,6 +1,7 @@
 
 # ThorCyberSentinel_Script
 
+"If Every website you visit tells you their page is safe, they are lying..."
 
 Powershell script to block unwanted hosts.  The script must be run by a user with administrative rights on the computer.
 
