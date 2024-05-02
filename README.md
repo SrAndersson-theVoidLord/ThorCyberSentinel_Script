@@ -7,12 +7,12 @@ Powershell script to block unwanted hosts.  The script must be run by a user wit
 
 ## Table of Contents
 
-Introduction<br>
-Features<br>
-How to Use<br>
-Lists of Urls Provided by StevenBlack and FadeMind <br>
-Contributing<br>
-License<br>
+- Introduction<br>
+- Features<br>
+- How to Use<br>
+- Lists of Urls Provided by StevenBlack and FadeMind <br>
+- Contributing<br>
+- License<br>
 
 ## Introduction
 
@@ -51,8 +51,9 @@ The script first checks if it's running with administrative rights. It then read
 - Make sure to review and customize the list of unwanted hosts according to your needs before executing the script.
 - Running the script will modify your computer's hosts file, so use caution and ensure you understand the implications.
 
-##Examples
-Here I provide you with examples of varios configurations that can be use.Chose one or everyone by taking the URLs from the .csv
+## Lists of Urls
+
+Here I provide you with examples of various configurations that can be use.Chose one or everyone by taking the URLs from the .csv provided below
 
 Special thanks to:
 https://github.com/FadeMind/hosts.extras <br>
