@@ -10,7 +10,7 @@ Powershell script to block unwanted hosts.  The script must be run by a user wit
 Introduction<br>
 Features<br>
 How to Use<br>
-Examples<br>
+Lists of Urls Provided by StevenBlack and FadeMind <br>
 Contributing<br>
 License<br>
 
