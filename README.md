@@ -8,19 +8,21 @@ Powershell script to block unwanted hosts.  The script must be run by a user wit
 
 ## Table of Contents
 
-- Introduction<br>
-- Features<br>
-- How to Use<br>
-- Lists of Urls Provided by StevenBlack and FadeMind <br>
-- Contributing<br>
-- License<br>
+- [**Introduction**](#introduction)
+- [**Features**](#features)
+- [**How to Use**](#how-to-use)
+- [**How It Works**](#how-it-works)
+- [**Lists of Urls**](#lists-of-urls)
+- [**Contributing**](#contributing)
+- [**License**](#license)
+
 
 ## Introduction
 
 This PowerShell script main purpose is to help enhance your internet security and browsing experience by blocking access to unwanted or malicious websites. It modifies the hosts file on your computer to prevent access to specified domains, effectively protecting you from spam, malware, and spyware while surfing the web.
 
 
-# Features
+## Features
 
 1.  Add the list of hosts to be blocked in an array.
 2.  Prevents access to known spam, malicious, and spy sites.
@@ -46,7 +48,7 @@ Note:The time the script takes will depend on the length of the provided list of
 
 The script first checks if it's running with administrative rights. It then reads the current hosts file and defines a list of unwanted hosts to block. Next, it generates new entries with the IP address `127.0.0.1` followed by the hostname of each unwanted site. Afterward, it ensures existing entries are properly formatted and adds new entries to the hosts file if they are not already present. Duplicate entries are removed, and the hosts file is overwritten with the updated content. Finally, a backup of the original hosts file is created, and the script displays the initial and final number of entries.
 
-## Notes:
+#### Notes:
 
 - Ensure you run the script with administrative privileges to modify the hosts file.
 - Make sure to review and customize the list of unwanted hosts according to your needs before executing the script.
