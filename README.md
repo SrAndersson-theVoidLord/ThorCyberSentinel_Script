@@ -59,12 +59,17 @@ The script first checks if it's running with administrative rights. It then read
 Here I provide you with examples of various configurations that can be use.Chose one or everyone by taking the URLs from the .csv provided below
 
 Special thanks to:
-https://github.com/FadeMind/hosts.extras <br>
-https://github.com/StevenBlack/hosts
-
+ <br>
+ [FadeMind](https://github.com/FadeMind) and [StevenBlack](https://github.com/StevenBlack)
  For providing with the scaned URLs lists.
+  <br>
+ Checkout their own projects regarding this topic:
+ <br>
+  <br>
+ [FadeMind/hosts.extras](https://github.com/FadeMind/hosts.extras) 
+ <br>
+ [StevenBlack/hosts](https://github.com/StevenBlack/hosts)
  
-
  | Host file recipe | Readme | Raw hosts | Unique domains | Non GitHub mirror |
 | ---------------- | :----: | :-------: | :------------: | :---------------: |
 Unified hosts = **(adware + malware)** | [Readme](https://github.com/StevenBlack/hosts/blob/master/readme.md) | [link](https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts) | 127,868 | [link](http://sbc.io/hosts/hosts)
